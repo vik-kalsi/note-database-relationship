@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotesController;
+use App\Http\Controllers\LogOutController;
 
 
 Route::get('/', function () {
@@ -31,4 +32,12 @@ Route::post('/login', [LoginController::class, 'LoginUser']);
 
 #Notes
 Route::get('/notes', [NotesController::class, "OpenViewNotesPage"])
+->middleware('auth');
+
+
+
+
+
+#Log out user
+Route::get('/logout', [LogOutController::class, "LogOutUser"])
 ->middleware('auth');
