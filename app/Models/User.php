@@ -29,4 +29,13 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    #Added Below
+    public function notes()
+    {
+        return $this->hasMany(Note::class);
+    }
+
+
 }
