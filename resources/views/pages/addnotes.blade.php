@@ -12,8 +12,12 @@
         <form action="/addnotes" method="post">
             @csrf
 
+            @error('content')
+                <p>{{ $message }}</p>
+            @enderror
+
             <div class="grid">
-                <textarea name="content" class="field-sizing-fixed w-80 border-2 p-1" rows="2"></textarea>
+                <textarea name="content" class="field-sizing-fixed w-80 border-2 p-1" rows="2" placeholder="Add Note Here"></textarea>
 
                 <button class="border-2 p-1 cursor-pointer mt-6" type="submit">Add Note</button>
             </div>
