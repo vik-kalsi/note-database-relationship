@@ -34,7 +34,9 @@ Route::get('/notes', [NotesController::class, "OpenViewNotesPage"])
 ->middleware('auth');
 
 
-
+#Add Notes
+Route::get('/addnotes', [NotesController::class, "OpenAddNotesPage"])
+->middleware('auth');
 
 
 #Log out user

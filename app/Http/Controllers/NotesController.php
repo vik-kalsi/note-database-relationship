@@ -10,4 +10,11 @@ class NotesController extends Controller
     {
         return view('pages.notes');
     }
+
+
+    public function OpenAddNotesPage()
+    {
+        return view('pages.addnotes');
+    }
+
 }
