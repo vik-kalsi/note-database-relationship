@@ -11,7 +11,8 @@ class NotesController extends Controller
 {
     public function OpenViewNotesPage()
     {
-        return view('pages.notes');
+        $notes = User::find(auth()->user()->id)->notes;
+        return view('pages.notes', ["notes" => $notes]);
     }
 
 
@@ -23,11 +24,9 @@ class NotesController extends Controller
 
     public function AddNotetoDB(Request $request)
     {
-
         $validated = $request->validate([
             'content' => 'required',
         ]);
-
 
         $note = new Note(['content' => $request->content]);
         $user = User::find(auth()->user()->id);
