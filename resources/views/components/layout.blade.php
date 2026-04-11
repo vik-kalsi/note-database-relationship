@@ -25,7 +25,6 @@
             @if(auth()->user())
                 <li class="px-2"><a class="hover:font-bold" href="/notes">View Notes</a></li>
                 <li class="px-2"><a class="hover:font-bold" href="/addnotes">Add Notes</a></li>
-                <li class="px-2"><a class="hover:font-bold" href="/editnotes">Edit Notes</a></li>
                 <li class="px-2"><a class="hover:font-bold" href="/logout">Logout</a></li>
             @endif
 

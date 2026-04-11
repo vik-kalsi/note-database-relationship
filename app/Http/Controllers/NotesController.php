@@ -38,6 +38,14 @@ class NotesController extends Controller
     }
 
 
+
+    public function OpenNoteToEdit()
+    {
+        return view('pages.editnote');
+    }
+
+
+
     public function DeleteSelectedNote($id)
     {
         $note = Note::findOrFail($id);
