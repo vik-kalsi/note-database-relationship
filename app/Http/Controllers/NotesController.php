@@ -37,4 +37,14 @@ class NotesController extends Controller
         ->with('noteAdded', 'Note has been added');
     }
 
+
+    public function DeleteSelectedNote($id)
+    {
+        $note = Note::findOrFail($id);
+        $note->delete();
+
+        return redirect()->action([NotesController::class, "OpenViewNotesPage"])
+        ->with('noteDeletedSuccess', 'Note has been deleted succesfully');
+    }
+
 }

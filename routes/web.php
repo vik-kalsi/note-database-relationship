@@ -33,12 +33,14 @@ Route::post('/login', [LoginController::class, 'LoginUser']);
 Route::get('/notes', [NotesController::class, "OpenViewNotesPage"])
 ->middleware('auth');
 
-
-#Add Notes
 Route::get('/addnotes', [NotesController::class, "OpenAddNotesPage"])
 ->middleware('auth');
 
 Route::post('/addnotes', [NotesController::class, "AddNotetoDB"])
+->middleware('auth');
+
+
+Route::delete('/notes/{id}', [NotesController::class, "DeleteSelectedNote"]) ->name('notes.destroy')
 ->middleware('auth');
 
 
