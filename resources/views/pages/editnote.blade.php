@@ -13,7 +13,7 @@
             @csrf
 
             <div class="grid">
-                <textarea name="content" class="field-sizing-fixed w-80 border-2 p-1" rows="2"></textarea>
+                <textarea name="content" class="field-sizing-fixed w-80 border-2 p-1" rows="2">{{ $noteToEdit }}</textarea>
 
                 <button class="border-2 p-1 cursor-pointer mt-6" type="submit">Edit Note</button>
             </div>

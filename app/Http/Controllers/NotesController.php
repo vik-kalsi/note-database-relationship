@@ -39,9 +39,10 @@ class NotesController extends Controller
 
 
 
-    public function OpenNoteToEdit()
+    public function OpenNoteToEdit($id)
     {
-        return view('pages.editnote');
+        $noteContent = Note::findOrFail($id)->content;
+        return view('pages.editnote', ["noteToEdit" => $noteContent]);
     }
 
 

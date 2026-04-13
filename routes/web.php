@@ -39,7 +39,8 @@ Route::get('/addnotes', [NotesController::class, "OpenAddNotesPage"])
 Route::post('/addnotes', [NotesController::class, "AddNotetoDB"])
 ->middleware('auth');
 
-Route::get('/editnote', [NotesController::class, "OpenNoteToEdit"])
+Route::post('/editnote/{id}', [NotesController::class, "OpenNoteToEdit"])
+->name('note.edit')
 ->middleware('auth');
 
 Route::delete('/notes/{id}', [NotesController::class, "DeleteSelectedNote"]) ->name('notes.destroy')
