@@ -25,11 +25,14 @@
             @if(auth()->user())
                 <li class="px-2"><a class="hover:font-bold" href="/notes">View Notes</a></li>
                 <li class="px-2"><a class="hover:font-bold" href="/addnotes">Add Notes</a></li>
-                <li class="px-2"><a class="hover:font-bold" href="/logout">Logout</a></li>
+
+                <div>
+                    <form action="{{ route('logout_user') }}" method="post">
+                        @csrf
+                        <button class="cursor-pointer px-2 hover:font-bold" type="submit">Logout</button>
+                    </form>
+                </div>
             @endif
-
-            
-
 
         </ul>
     </div>

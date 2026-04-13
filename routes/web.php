@@ -48,5 +48,6 @@ Route::delete('/notes/{id}', [NotesController::class, "DeleteSelectedNote"]) ->n
 
 
 #Log out user
-Route::get('/logout', [LogOutController::class, "LogOutUser"])
+Route::post('/logout', [LogOutController::class, "LogOutUser"])
+->name('logout_user')
 ->middleware('auth');
