@@ -47,6 +47,29 @@ class NotesController extends Controller
 
 
 
+
+
+
+    public function EditingTheNoteSubmission(Request $request, $id)
+    {
+        $request->validate([
+            'content' => 'required',
+        ]);
+
+        $noteContent = Note::findOrFail($id);
+
+        $noteContent->content = $request->input('content');
+        $noteContent->save();
+        
+        return redirect()->action([NotesController::class, "OpenViewNotesPage"]);
+    }
+
+
+
+
+    
+
+
     public function DeleteSelectedNote($id)
     {
         $note = Note::findOrFail($id);

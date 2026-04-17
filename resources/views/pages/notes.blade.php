@@ -36,7 +36,7 @@
 
 
                     <div class="flex gap-x-3">
-                        <form action="{{ route('note.edit', $note->id) }}" method="post">
+                        <form action="{{ route('note.edit', $note->id) }}" method="get">
                             @csrf
 
                             <button class="mt-6 border-2 p-1 cursor-pointer hover:bg-blue-700" type="submit">Edit Note</button>
