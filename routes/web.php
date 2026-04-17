@@ -44,12 +44,8 @@ Route::get('/editnote/{id}', [NotesController::class, "OpenNoteToEdit"])
 ->middleware('auth');
 
 
-
-
 Route::put('/editnote/{id}', [NotesController::class, "EditingTheNoteSubmission"]) ->name('update_note_submission')
 ->middleware('auth');
-
-
 
 
 Route::delete('/notes/{id}', [NotesController::class, "DeleteSelectedNote"]) ->name('notes.destroy')

@@ -41,12 +41,9 @@ class NotesController extends Controller
 
     public function OpenNoteToEdit($id)
     {
-        $noteContent = Note::findOrFail($id)->content;
+        $noteContent = Note::findOrFail($id);
         return view('pages.editnote', ["noteToEdit" => $noteContent]);
     }
-
-
-
 
 
 
@@ -61,13 +58,11 @@ class NotesController extends Controller
         $noteContent->content = $request->input('content');
         $noteContent->save();
         
-        return redirect()->action([NotesController::class, "OpenViewNotesPage"]);
+        return redirect()->action([NotesController::class, "OpenViewNotesPage"])
+        ->with('noteEditSuccess', 'Note has been edited succesfully');
     }
 
 
-
-
-    
 
 
     public function DeleteSelectedNote($id)

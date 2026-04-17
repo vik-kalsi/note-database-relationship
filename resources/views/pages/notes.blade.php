@@ -14,6 +14,10 @@
     @endif
 
 
+    @if (session('noteEditSuccess'))
+        <p>{{ session('noteEditSuccess') }}</p>
+    @endif
+
     @if (session('noteDeletedSuccess'))
         <p class="mb-6">{{ session('noteDeletedSuccess') }}</p>
     @endif
