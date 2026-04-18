@@ -42,16 +42,16 @@ class NotesController extends Controller
     public function OpenNoteToEdit($id)
     {
         $noteContent = Note::findOrFail($id);
+        $userID = auth()->id();
 
-        $noteID = Note::find($id)->user_id;
-        $userID = User::find(auth()->user()->id)->id;
-
-        
-        if ($noteID === $userID) {
+        if ($noteContent->user_id === $userID) {
             return view('pages.editnote', ["noteToEdit" => $noteContent]);
         }
-        
-        
+
+        else {
+            return redirect()->action([NotesController::class, "OpenViewNotesPage"]);
+        }
+
     }
 
 
