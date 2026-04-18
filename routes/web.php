@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\RegisterController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\NotesController;
+use App\Http\Controllers\DeleteAccountController;
 use App\Http\Controllers\LogOutController;
 
 
@@ -49,6 +50,14 @@ Route::put('/editnote/{id}', [NotesController::class, "EditingTheNoteSubmission"
 
 
 Route::delete('/notes/{id}', [NotesController::class, "DeleteSelectedNote"]) ->name('notes.destroy')
+->middleware('auth');
+
+
+#Delete user account
+Route::get('/deleteaccount', [DeleteAccountController::class, "OpenDeleteAccountPage"])
+->middleware('auth');
+
+Route::delete('/deleteaccount/{id}', [DeleteAccountController::class, "DeleteAccount"])->name('account.delete')
 ->middleware('auth');
 
 
